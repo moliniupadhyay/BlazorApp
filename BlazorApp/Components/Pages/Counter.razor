@@ -1,4 +1,4 @@
-@page "/counter/"
+@page "/counter"
 @page "/counter2"
 @rendermode InteractiveServer
 
@@ -9,23 +9,23 @@
 <p role="status">Current count: @currentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
-<div class="mt-3">
-<input @oninput="OnInput">
-<p>@text</p>
+<MyButton OnClick="IncrementCount" class="btn btn-success">MyButton</MyButton>
 
-<div style="background-color: lightblue" @onmouseover="MouseOver" @onmouseout="MouseOut"> @divText
-</div>
+<div class="mt-3">
+    <input @oninput="OnInput">
+    <p>@text</p>
+    <div style="background-color: lightblue" @onmouseover="MouseOver" @onmouseout="MouseOut">@divText</div>
 </div>
 
 @code {
     private int currentCount = 0;
-    String text ="";
-    String divText="Mouse out";
+    private string text = "";
+    private string divText = "Mouse out";
 
     private void IncrementCount(MouseEventArgs e) => currentCount++;
     private void OnInput(ChangeEventArgs e) => text = (string)e.Value!;
     private void MouseOver(MouseEventArgs e) => divText = "Mouse Over";
-    private void MouseOut(MouseEventArgs e) => divText = "Mouse Outt";
+    private void MouseOut(MouseEventArgs e) => divText = "Mouse Out";
 }
 
 
